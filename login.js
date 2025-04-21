@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (user.role === role) {
                 showMessage('success', `Successfully logged in as ${role}`);
                 
-                // Store login state
-                sessionStorage.setItem('currentUser', JSON.stringify(user));
+                // Store login state in localStorage instead of sessionStorage
+                localStorage.setItem('currentUser', JSON.stringify(user));
                 
                 // Redirect after delay
                 setTimeout(() => {
@@ -125,8 +125,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (email === 'demo@collabsphere.com' && password === 'password123') {
                 showMessage('success', `Successfully logged in as ${role}`);
                 
-                // Store login state
-                sessionStorage.setItem('currentUser', JSON.stringify({
+                // Store login state in localStorage instead of sessionStorage
+                localStorage.setItem('currentUser', JSON.stringify({
                     name: 'Demo User',
                     email: email,
                     role: role

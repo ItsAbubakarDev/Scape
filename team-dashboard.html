@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollabSphere - Team Member Dashboard</title>
+    <link rel="stylesheet" href="team-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">CollabSphere</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="team-member-dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                    <li><a href="team-member-projects.html"><i class="fas fa-tasks"></i> My Projects</a></li>
+                    <li><a href="team-member-tasks.html"><i class="fas fa-check-square"></i> My Tasks</a></li>
+                    <li><a href="team-member-profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar">
+                    <div class="user-details">
+                        <h4 id="user-name">Team Member</h4>
+                        <span id="user-role">Member</span>
+                    </div>
+                </div>
+                <a href="login.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <h2>My Task Dashboard</h2>
+                    <p class="date-display" id="current-date">Monday, April 21, 2025</p>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search tasks...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>My Projects</h3>
+                        <p class="stat-number" id="total-projects">0</p>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-folder"></i>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Total Tasks</h3>
+                        <p class="stat-number" id="total-tasks">0</p>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-list-check"></i>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>In Progress</h3>
+                        <p class="stat-number" id="in-progress-tasks">0</p>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-spinner"></i>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Completed</h3>
+                        <p class="stat-number" id="completed-tasks">0</p>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Overview Section -->
+            <div class="overview-section">
+                <div class="section-header">
+                    <h2>My Projects</h2>
+                    <a href="team-member-projects.html" class="btn text-btn">
+                        <span>View All</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="projects-container" id="projects-container">
+                    <!-- Projects will be loaded here dynamically -->
+                </div>
+            </div>
+
+            <!-- Tasks Section -->
+            <div class="tasks-section">
+                <div class="section-header">
+                    <h2>My Tasks</h2>
+                    <a href="team-member-tasks.html" class="btn text-btn">
+                        <span>View All</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tasks-filter">
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-filter="all">All Tasks</button>
+                        <button class="filter-btn" data-filter="todo">To Do</button>
+                        <button class="filter-btn" data-filter="in-progress">In Progress</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+                    <div class="sort-options">
+                        <label for="sort-tasks">Sort by:</label>
+                        <select id="sort-tasks">
+                            <option value="deadline">Deadline</option>
+                            <option value="priority">Priority</option>
+                            <option value="project">Project</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="tasks-container" id="tasks-container">
+                    <!-- Tasks will be loaded here dynamically -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Empty State Template (Hidden by default) -->
+    <template id="empty-projects-template">
+        <div class="empty-state">
+            <div class="empty-icon">
+                <i class="fas fa-folder-open"></i>
+            </div>
+            <h3>No Projects Assigned</h3>
+            <p>You don't have any projects assigned to you yet.</p>
+        </div>
+    </template>
+
+    <!-- Empty Tasks Template (Hidden by default) -->
+    <template id="empty-tasks-template">
+        <div class="empty-state">
+            <div class="empty-icon">
+                <i class="fas fa-clipboard-list"></i>
+            </div>
+            <h3>No Tasks Available</h3>
+            <p>You don't have any tasks assigned to you at the moment.</p>
+        </div>
+    </template>
+
+    <!-- Project Card Template (Hidden by default) -->
+    <template id="project-card-template">
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title"></h3>
+                <span class="project-status"></span>
+            </div>
+            <div class="project-details">
+                <div class="detail-item">
+                    <i class="fas fa-calendar"></i>
+                    <span class="deadline"></span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-tasks"></i>
+                    <span class="tasks"></span>
+                </div>
+            </div>
+            <div class="project-progress">
+                <div class="progress-label">
+                    <span>Progress</span>
+                    <span class="progress-percentage"></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            <div class="project-actions">
+                <button class="btn action-btn view-btn"><i class="fas fa-eye"></i> View</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Task Card Template (Hidden by default) -->
+    <template id="task-card-template">
+        <div class="task-card">
+            <div class="task-status-indicator"></div>
+            <div class="task-content">
+                <div class="task-header">
+                    <h3 class="task-title"></h3>
+                    <span class="task-project"></span>
+                </div>
+                <div class="task-details">
+                    <div class="detail-item">
+                        <i class="fas fa-calendar"></i>
+                        <span class="task-deadline"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-flag"></i>
+                        <span class="task-priority"></span>
+                    </div>
+                </div>
+                <p class="task-description"></p>
+            </div>
+            <div class="task-actions">
+                <div class="task-status-dropdown">
+                    <select class="status-select">
+                        <option value="todo">To Do</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="team-dashboard.js"></script>
+</body>
+</html>

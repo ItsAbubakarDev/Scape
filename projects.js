@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Check if user is logged in
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     
     if (!currentUser) {
         // Redirect to login if not logged in
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('current-date').textContent = new Date().toLocaleDateString(undefined, dateOptions);
     
     // Load projects from sessionStorage
-    let projects = JSON.parse(sessionStorage.getItem('projects') || '[]');
+    let projects = JSON.parse(localStorage.getItem('projects') || '[]');
     
     // Initial rendering of projects
     renderProjects(projects);

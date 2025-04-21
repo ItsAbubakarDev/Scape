@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Check if user is logged in
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     
     if (!currentUser) {
         // Redirect to login if not logged in
@@ -180,13 +180,13 @@ function handleFormSubmit(event) {
     console.log('Project Data:', projectData);
     
     // For demo purposes, save to sessionStorage
-    const projects = JSON.parse(sessionStorage.getItem('projects') || '[]');
+    const projects = JSON.parse(localStorage.getItem('projects') || '[]');
     projectData.id = projects.length + 1;
     projectData.status = 'pending';
     projectData.progress = 0;
     projectData.createdAt = new Date().toISOString();
     projects.push(projectData);
-    sessionStorage.setItem('projects', JSON.stringify(projects));
+    localStorage.setItem('projects', JSON.stringify(projects));
     
     // Show success message
     alert('Project created successfully!');

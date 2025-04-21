@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollabSphere - Login/Signup</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Message display for success/error -->
+        <div id="message" class="message hidden"></div>
+        
+        <div class="form-header">
+            <div class="logo">CollabSphere</div>
+            <p>Smart Team Collaboration Platform</p>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" id="login-tab">Login</div>
+            <div class="tab" id="signup-tab">Sign Up</div>
+        </div>
+        
+        <!-- Login Form -->
+        <form id="login-form">
+            <div class="form-group">
+                <label for="login-email">Email Address</label>
+                <input type="email" id="login-email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="login-password" class="form-control" required>
+                    <span class="toggle-password">Show</span>
+                </div>
+            </div>
+            
+            <div class="role-options">
+                <div class="role-option">
+                    <input type="radio" id="login-manager" name="login-role" value="manager" checked>
+                    <label for="login-manager">Manager</label>
+                </div>
+                <div class="role-option">
+                    <input type="radio" id="login-member" name="login-role" value="member">
+                    <label for="login-member">Team Member</label>
+                </div>
+            </div>
+            
+            <div class="form-check">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember me</label>
+            </div>
+            
+            <button type="submit" class="btn">Login</button>
+            
+            <div class="form-footer">
+                <p>Don't have an account? <a href="#" id="show-signup">Sign up now</a></p>
+                <p style="margin-top: 10px;"><a href="#" id="forgot-password">Forgot password?</a></p>
+            </div>
+        </form>
+        
+        <!-- Signup Form -->
+        <form id="signup-form" class="hidden">
+            <div class="form-group">
+                <label for="signup-name">Full Name</label>
+                <input type="text" id="signup-name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="signup-email">Email Address</label>
+                <input type="email" id="signup-email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="signup-password" class="form-control" required>
+                    <span class="toggle-password">Show</span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="signup-confirm-password">Confirm Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="signup-confirm-password" class="form-control" required>
+                    <span class="toggle-password">Show</span>
+                </div>
+            </div>
+            
+            <div class="role-options">
+                <div class="role-option">
+                    <input type="radio" id="signup-manager" name="signup-role" value="manager" checked>
+                    <label for="signup-manager">Manager</label>
+                </div>
+                <div class="role-option">
+                    <input type="radio" id="signup-member" name="signup-role" value="member">
+                    <label for="signup-member">Team Member</label>
+                </div>
+            </div>
+            
+            <div class="form-check">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+            </div>
+            
+            <button type="submit" class="btn">Create Account</button>
+            
+            <div class="form-footer">
+                <p>Already have an account? <a href="#" id="show-login">Login instead</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
