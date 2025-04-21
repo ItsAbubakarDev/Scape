@@ -1,0 +1,240 @@
+/* Additional CSS for Team Members Page */
+
+.team-members-section {
+    margin-bottom: 30px;
+}
+
+.members-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.member-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    transition: all 0.3s;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.member-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.member-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #4a6cfa;
+}
+
+.member-info {
+    flex: 1;
+}
+
+.member-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #333;
+}
+
+.member-role {
+    font-size: 14px;
+    color: #666;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.member-contact {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #718096;
+}
+
+.member-contact i {
+    margin-right: 5px;
+    color: #4a6cfa;
+}
+
+.member-status {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.status-active {
+    background-color: #c6f6d5;
+    color: #38a169;
+}
+
+.status-away {
+    background-color: #ffeaa7;
+    color: #d69e2e;
+}
+
+.status-offline {
+    background-color: #edf2f7;
+    color: #718096;
+}
+
+.member-stats {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #edf2f7;
+    padding-bottom: 15px;
+}
+
+.stat {
+    flex: 1;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.stat:not(:last-child) {
+    border-right: 1px solid #edf2f7;
+}
+
+.stat-label {
+    display: block;
+    font-size: 12px;
+    color: #718096;
+    margin-bottom: 5px;
+}
+
+.projects-count,
+.tasks-count,
+.completed-count {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.member-productivity {
+    margin-bottom: 15px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #edf2f7;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #4a6cfa;
+    border-radius: 4px;
+}
+
+.project-involvement {
+    margin-bottom: 15px;
+}
+
+.project-involvement h4 {
+    font-size: 14px;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.project-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.project-badge {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 15px;
+    background-color: #e6efff;
+    color: #4a6cfa;
+}
+
+.member-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.view-btn {
+    background-color: #ebf4ff;
+    color: #4a6cfa;
+    border: 1px solid #d6e4ff;
+    margin-right: 10px;
+}
+
+.edit-btn {
+    background-color: #edf2f7;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+}
+
+.view-btn:hover {
+    background-color: #d6e4ff;
+}
+
+.edit-btn:hover {
+    background-color: #e2e8f0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .members-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .member-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .member-avatar {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .member-info {
+        margin-bottom: 10px;
+    }
+    
+    .member-status {
+        position: static;
+        display: inline-block;
+        margin-top: 5px;
+    }
+}

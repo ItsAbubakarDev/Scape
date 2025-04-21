@@ -1,0 +1,64 @@
+/* Add to your existing manager-dashboard.css file */
+
+.projects-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9fafc;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.filter-group select {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 14px;
+    min-width: 120px;
+}
+
+/* Status badges styling */
+.project-status {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.status-ongoing, .status-in-progress {
+    background-color: #ebf5ff;
+    color: #3182ce;
+}
+
+.status-completed {
+    background-color: #e6fffa;
+    color: #38b2ac;
+}
+
+.status-pending {
+    background-color: #fefcbf;
+    color: #d69e2e;
+}
+
+/* Project cards in grid layout for larger screens */
+@media (min-width: 768px) {
+    .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+    }
+}

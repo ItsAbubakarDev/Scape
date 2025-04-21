@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollabSphere - Create New Project</title>
+    <link rel="stylesheet" href="manager-dashboard.css">
+    <link rel="stylesheet" href="create-project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">CollabSphere</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="manager-dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-tasks"></i> Projects</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Team Members</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar">
+                    <div class="user-details">
+                        <h4 id="user-name">Manager Name</h4>
+                        <span id="user-role">Manager</span>
+                    </div>
+                </div>
+                <a href="login.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <h2>Create New Project</h2>
+                    <p class="date-display" id="current-date">Monday, April 21, 2025</p>
+                </div>
+                <div class="header-right">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="create-project-container">
+                <form id="create-project-form">
+                    <div class="form-section">
+                        <h3>Project Details</h3>
+                        <div class="form-group">
+                            <label for="project-title">Project Title*</label>
+                            <input type="text" id="project-title" name="title" required placeholder="Enter project title">
+                        </div>
+                        <div class="form-group">
+                            <label for="project-description">Project Description*</label>
+                            <textarea id="project-description" name="description" required placeholder="Describe the project and its objectives"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="start-date">Start Date*</label>
+                                <input type="date" id="start-date" name="startDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="end-date">End Date*</label>
+                                <input type="date" id="end-date" name="endDate" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-priority">Priority*</label>
+                            <select id="project-priority" name="priority" required>
+                                <option value="">Select Priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                <option value="critical">Critical</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Team Assignment</h3>
+                        <div class="form-group">
+                            <label>Select Team Members*</label>
+                            <div class="team-members-container" id="team-members-container">
+                                <!-- Team members will be loaded here dynamically -->
+                                <div class="loading-message">Loading team members...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Task Assignment</h3>
+                        <div id="tasks-container">
+                            <div class="task-item">
+                                <div class="form-row">
+                                    <div class="form-group task-title-group">
+                                        <label for="task-title-1">Task Title*</label>
+                                        <input type="text" id="task-title-1" name="tasks[0][title]" required placeholder="Enter task title">
+                                    </div>
+                                    <div class="form-group task-priority-group">
+                                        <label for="task-priority-1">Priority*</label>
+                                        <select id="task-priority-1" name="tasks[0][priority]" required>
+                                            <option value="">Select</option>
+                                            <option value="low">Low</option>
+                                            <option value="medium">Medium</option>
+                                            <option value="high">High</option>
+                                            <option value="critical">Critical</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group task-assignee-group">
+                                        <label for="task-assignee-1">Assignee*</label>
+                                        <select id="task-assignee-1" name="tasks[0][assignee]" required>
+                                            <option value="">Select Team Member</option>
+                                            <!-- Options will be populated dynamically -->
+                                        </select>
+                                    </div>
+                                    <div class="form-group task-deadline-group">
+                                        <label for="task-deadline-1">Deadline*</label>
+                                        <input type="date" id="task-deadline-1" name="tasks[0][deadline]" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="task-description-1">Task Description</label>
+                                    <textarea id="task-description-1" name="tasks[0][description]" placeholder="Describe the task"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="add-task-btn" class="btn secondary-btn">
+                            <i class="fas fa-plus"></i> Add Another Task
+                        </button>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="cancel-btn" class="btn outline-btn">Cancel</button>
+                        <button type="submit" id="create-btn" class="btn primary-btn">Create Project</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Template for new task item -->
+    <template id="task-template">
+        <div class="task-item">
+            <div class="task-header">
+                <h4>New Task</h4>
+                <button type="button" class="remove-task-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="form-row">
+                <div class="form-group task-title-group">
+                    <label>Task Title*</label>
+                    <input type="text" class="task-title" required placeholder="Enter task title">
+                </div>
+                <div class="form-group task-priority-group">
+                    <label>Priority*</label>
+                    <select class="task-priority" required>
+                        <option value="">Select</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group task-assignee-group">
+                    <label>Assignee*</label>
+                    <select class="task-assignee" required>
+                        <option value="">Select Team Member</option>
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="form-group task-deadline-group">
+                    <label>Deadline*</label>
+                    <input type="date" class="task-deadline" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Task Description</label>
+                <textarea class="task-description" placeholder="Describe the task"></textarea>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template for team member selection -->
+    <template id="team-member-template">
+        <div class="team-member-card">
+            <input type="checkbox" class="team-member-checkbox">
+            <div class="team-member-info">
+                <img src="" alt="Team Member" class="team-member-avatar">
+                <div class="team-member-details">
+                    <h4 class="team-member-name"></h4>
+                    <span class="team-member-role"></span>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="create-project.js"></script>
+</body>
+</html>

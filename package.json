@@ -1,0 +1,27 @@
+{
+  "name": "scape",
+  "version": "1.0.0",
+  "description": "In this PROJECT I along with my fellow asma noor participated in the comsicon web dev  hackathon and build a task management solution",
+  "main": "login.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsAbubakarDev/Scape.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItsAbubakarDev/Scape/issues"
+  },
+  "homepage": "https://github.com/ItsAbubakarDev/Scape#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2"
+  }
+}
